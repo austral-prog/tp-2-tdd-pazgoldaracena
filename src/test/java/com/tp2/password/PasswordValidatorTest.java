@@ -20,7 +20,7 @@ class PasswordValidatorTest {
 
     @Test
     void isMore8CharsTest() {
-        assertTrue(pass.isValid("helloworld"));
+        assertTrue(pass.isValid("Hello@World1"));
     }
 
     @Test

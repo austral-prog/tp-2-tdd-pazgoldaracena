@@ -4,14 +4,11 @@ public class PasswordValidator {
 
     public boolean isValid(String password) {
 
-        boolean ValidLenght = false;
-        boolean ValidCase = false;
-
         if (password == null) {
             return false;
         }
 
-
+        boolean validLength = false;
         boolean hasUpper = false;
         boolean hasLower = false;
         boolean hasDigit = false;
@@ -19,7 +16,9 @@ public class PasswordValidator {
 
         String specialChars = "!@#$%^&*()_+-=[]{}|;:,.<>?";
 
-
+        if (password.length() >= 8) {
+            validLength = true;
+        }
         for (char c : password.toCharArray()) {
             if (c >= 'A' && c <= 'Z') {
                 hasUpper = true;
@@ -32,7 +31,7 @@ public class PasswordValidator {
             }
         }
 
-        if (hasUpper && hasLower && hasDigit && hasSpecial) {
+        if (hasUpper && hasLower && hasDigit && hasSpecial && validLength) {
             return true;
         }
 
